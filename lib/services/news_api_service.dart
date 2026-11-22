@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import '../models/news_model.dart';
 
 class NewsApiService {
-  static const String baseUrl = 'http://localhost:5000';
+  static const String baseUrl =
+      'https://technewz-360.onrender.com';
 
   String detectCategory(String title, String description) {
     final text = '$title $description'.toLowerCase();
