@@ -49,16 +49,17 @@ async function fetchAPI(url, options = {}, timeout = 15000) {
             throw new Error("Invalid API response.");
         }
 
-        if (!response.ok) {
-            const error = new Error(
-                data.error?.message ||
-                data.message ||
-                `API error: ${response.status}`
-            );
+     if (!response.ok) {
+    console.error("API STATUS:", response.status);
+    console.error("API RAW RESPONSE:", text);
 
-            error.status = response.status;
-            throw error;
-        }
+    const error = new Error(
+        `API error ${response.status}: ${text}`
+    );
+
+    error.status = response.status;
+    throw error;
+}
 
         return data;
 
